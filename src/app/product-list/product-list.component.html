@@ -1,0 +1,50 @@
+<div class="" *ngFor="let product of products">
+  <div class="card m-2 d-flex justify-content-center" style="width: 16rem">
+    <img
+      [src]="product.imageURL"
+      class="card-img-top"
+      style="height: 16rem; object-fit: contain"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{
+          product.name.length <= 20
+            ? product.name
+            : (product.name | slice : 0 : 19) + "..."
+        }}
+      </h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Price : ${{ product.price }}</li>
+      <li class="list-group-item text-muted small">
+        {{ product.category }}, {{ product.gender }}, {{ product.brand }}
+      </li>
+      <li class="list-group-item" *ngIf="product.discountPrice != null">
+        Discounted Price : ${{ product.discountPrice }}
+      </li>
+      <li class="list-group-item" *ngIf="product.discountPrice == null">
+        New Arrivals
+      </li>
+      <!-- <li class="list-group-item text-muted">Out of Stock</li>
+      <li class="list-group-item text-muted">Out of Stock</li> -->
+      <li class="list-group-item">
+        <div class="d-flex justify-content-between align-items-center">
+          Add :
+          <div class="d-flex justify-content-between align-items-center">
+            <button
+              class="btn btn-danger"
+              (click)="decrement()"
+              [disabled]="disabled"
+            >
+              -
+            </button>
+            <p class="m-2">{{ counter }}</p>
+            <button class="btn btn-primary" (click)="increment()">+</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`
