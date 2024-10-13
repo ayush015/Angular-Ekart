@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product-search',
@@ -9,14 +9,19 @@ export class ProductSearchComponent {
   searchTerm: string = '';
   showSearchResult: boolean = false;
 
+  @Output()
+  clickEvent: EventEmitter<string> = new EventEmitter<string>();
+
   onSearch() {
     this.showSearchResult = true;
+    this.clickEvent.emit(this.searchTerm);
   }
 
   handleInput(e: Event) {
     const input = e.target as HTMLInputElement;
-
-    if (input.value === '') this.showSearchResult = false;
-    else this.searchTerm = input.value;
+    if (input.value === '') {
+      this.showSearchResult = false;
+      this.searchTerm = '';
+    } else this.searchTerm = input.value;
   }
 }

@@ -1,21 +1,5 @@
 import { Component } from '@angular/core';
-
-interface productList {
-  id: number;
-  description: string;
-  brand: string;
-  gender: string;
-  size?: number[];
-  color?: string[];
-  discountPrice?: number;
-  is_in_inventory: boolean;
-  name: string;
-  price: number;
-  category?: string;
-  items_left: number;
-  imageURL?: string;
-  slug: string;
-}
+import { productList } from '../../Models/Product';
 
 @Component({
   selector: 'app-product-list',
@@ -23,9 +7,6 @@ interface productList {
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-  counter: number = 0;
-  disabled: boolean = false;
-
   products: productList[] = [
     {
       id: 1,
@@ -412,16 +393,25 @@ export class ProductListComponent {
     },
   ];
 
-  increment() {
-    this.disabled = false;
-    this.counter++;
+  productListDisplay: productList[] = this.products;
+
+  totalProducts: number = this.products.length;
+  totalInStockProducts: number = this.products.filter((p) => p.is_in_inventory)
+    .length;
+  totalOutOfStockProducts: number = this.products.filter(
+    (p) => !p.is_in_inventory
+  ).length;
+
+  onFilterChange(value: string) {
+    this.productListDisplay = this.products.filter(
+      (p) => p.is_in_inventory.toString() === value || value === 'all'
+    );
   }
 
-  decrement() {
-    if (this.counter > 0) {
-      this.counter--;
-    } else {
-      this.disabled = true;
-    }
+  handleSearch(value: string) {
+    console.log(value);
+    this.productListDisplay = this.products.filter(
+      (p) => value === '' || p.name.toLowerCase().includes(value.toLowerCase())
+    );
   }
 }

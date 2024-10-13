@@ -1,0 +1,16 @@
+<app-header></app-header>
+<app-product-search
+  (clickEvent)="productsRef.handleSearch($event)"
+></app-product-search>
+<app-filter
+  [all]="productsRef.totalProducts"
+  [inStock]="productsRef.totalInStockProducts"
+  [outOfStock]="productsRef.totalOutOfStockProducts"
+  (FilterChangeEvent)="productsRef.onFilterChange($event)"
+></app-filter>
+<div class="m-3 d-flex justify-content-between align-items-center p-2">
+  <app-product-list
+    class="d-flex justify-content-center flex-wrap w-100"
+    #productsRef
+  ></app-product-list>
+</div>

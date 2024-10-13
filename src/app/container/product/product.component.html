@@ -1,4 +1,4 @@
-<div class="" *ngFor="let product of products">
+<div>
   <div class="card m-2 d-flex justify-content-center" style="width: 16rem">
     <img
       [src]="product.imageURL"
@@ -26,25 +26,21 @@
       <li class="list-group-item" *ngIf="product.discountPrice == null">
         New Arrivals
       </li>
-      <!-- <li class="list-group-item text-muted">Out of Stock</li>
-      <li class="list-group-item text-muted">Out of Stock</li> -->
+      <li class="list-group-item">
+        {{ product.is_in_inventory === true ? "In Stock" : "Out of Stock" }}
+      </li>
       <li class="list-group-item">
         <div class="d-flex justify-content-between align-items-center">
           Add :
           <div class="d-flex justify-content-between align-items-center">
-            <button
-              class="btn btn-danger"
-              (click)="decrement()"
-              [disabled]="disabled"
-            >
+            <button class="btn" (click)="decrement()" [disabled]="disabled">
               -
             </button>
             <p class="m-2">{{ counter }}</p>
-            <button class="btn btn-primary" (click)="increment()">+</button>
+            <button class="btn" (click)="increment()">+</button>
           </div>
         </div>
       </li>
     </ul>
   </div>
 </div>
-`

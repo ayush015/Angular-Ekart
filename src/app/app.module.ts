@@ -3,10 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { ProductSearchComponent } from './product-search/product-search.component';
+import { HeaderComponent } from './container/header/header.component';
+import { ProductListComponent } from './container/product-list/product-list.component';
+import { ProductSearchComponent } from './container/product-search/product-search.component';
 import { FormsModule } from '@angular/forms';
+import { ContainerComponent } from './container/container.component';
+import { FilterComponent } from './container/filter/filter.component';
+import { ProductComponent } from './container/product/product.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +17,9 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     ProductListComponent,
     ProductSearchComponent,
+    ContainerComponent,
+    FilterComponent,
+    ProductComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
