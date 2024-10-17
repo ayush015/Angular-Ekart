@@ -17,7 +17,7 @@ export class ProductListComponent {
       gender: 'MEN',
       category: 'RUNNING',
       size: [6, 7, 8, 9, 10],
-      color: ['White', 'Blue', 'Black'],
+      color: ['White', 'Blue', 'Black','green'],
       price: 160,
       discountPrice: 140,
       is_in_inventory: true,
@@ -393,7 +393,9 @@ export class ProductListComponent {
     },
   ];
 
+  selectedProduct : productList;
   productListDisplay: productList[] = this.products;
+  sideBar : boolean = false;
 
   totalProducts: number = this.products.length;
   totalInStockProducts: number = this.products.filter((p) => p.is_in_inventory)
@@ -413,5 +415,11 @@ export class ProductListComponent {
     this.productListDisplay = this.products.filter(
       (p) => value === '' || p.name.toLowerCase().includes(value.toLowerCase())
     );
+  }
+  
+  handleClick(product : productList){
+    console.log(product)
+    this.selectedProduct = product
+    this.sideBar = true
   }
 }

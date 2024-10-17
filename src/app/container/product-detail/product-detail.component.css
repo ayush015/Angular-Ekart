@@ -1,0 +1,82 @@
+.offcanvas-title {
+    color: #FFE3E3;
+}
+.ekart--product--details--info{
+    position: relative;
+    background-color: white;
+    transition: 1s;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 25px;
+    background-color: #212529;
+}
+
+.ekart-product-detail{
+    padding: 10px 0px;
+    background-color: #212529;
+}
+.ekart-product-detail-gbc{
+    margin: 20px 0px;
+}
+
+.ekart-product-detail-gbc > span{
+    background-color: #0b8ee6;
+    margin-left: 0px;
+    padding: 5px 20px;
+    font-size: 14px;
+    color: white;
+}
+
+.ekart-product-detail-name{
+    margin: 20px auto;
+}
+.ekart-product-detail-price{
+    font-size: 14px;
+    margin:30px 0px;
+    padding: 25px 10px;
+    background-color: #CBD2A4;
+    color: #54473F;
+    border:#CBD2A4 2px solid;
+    border-radius: 5px;
+}
+.ekart-product-detail-size{
+    margin: 50px 0px;
+}
+span{
+    padding: 5px 10px;
+    margin: 1rem 5px;
+    border-radius: 5px;
+}
+.ekart-product-detail-available-size{
+    margin: 0px 0.5rem;
+    background-color: #5858c4; 
+    color:white;
+    border-radius: 0px;
+    padding: 10px 15px;
+    font-size: 16px;
+}
+.ekart-product-detail-available-color{
+    border-radius: 50%;
+    padding: 8px 18px;
+}
+.ekart-product-detail-desc{
+    margin-top: 30px;
+    font-size: 14px;
+}
+.ekart-product-detail-addtoCart{
+    margin: 20px 0px;
+}
+.btn-add-to-cart{
+    border: none;
+    background-color: #28282B;
+    padding: 10px 30px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.offcanvas{
+    transition: transform 0.3s ease-in-out;
+}
+

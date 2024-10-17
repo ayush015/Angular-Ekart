@@ -1,0 +1,95 @@
+<!-- <button
+  class="btn btn-primary"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasRight"
+  aria-controls="offcanvasRight"
+>
+  Toggle right offcanvas
+</button> -->
+
+<div
+  class="offcanvas offcanvas-end showing text-bg-dark"
+  tabindex="-1"
+  id="offcanvasRight"
+  aria-labelledby="offcanvasRightLabel"
+  style="width: 30rem;"
+ 
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">
+      {{ selectProduct.name }}
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+      style="background-color: aliceblue"
+      (click)="onClose()"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="ekart--product--details--info">
+      <div class="card" style="width: 25rem">
+        <img
+          [src]="selectProduct.imageURL"
+          class="ekart-product-detail-image"
+        />
+      </div>
+
+      <div class="ekart-product-detail">
+        <div class="ekart-product-detail-gbc">
+          <span>{{ selectProduct.gender }}</span>
+          <span>{{ selectProduct.brand }}</span>
+          <span>{{ selectProduct.category }}</span>
+        </div>
+        <div class="ekart-product-detail-price">
+          <p>
+            <b>Price Each Pair:</b>
+            <span style="background-color: red; color: white"
+              >${{ selectProduct.price }}</span
+            >
+            <span style="background-color: green; color: white"
+              >${{ selectProduct.discountPrice }}</span
+            >
+            (Inclusive of all taxes)
+          </p>
+        </div>
+        <div class="ekart-product-detail-size">
+          <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+            <h4>Available Size</h4>
+          </div>
+          <diV style="margin-top: 20px" >
+            <span class="ekart-product-detail-available-size" *ngFor="let size of selectProduct.size">{{size}}</span>
+          </diV>
+        </div>
+
+        <div class="ekart-product-detail-color">
+          <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+            <h4>Available Color</h4>
+          </div>
+          <diV style="margin-top: 20px">
+            <span
+            class="ekart-product-detail-available-color"
+             *ngFor="let color of selectProduct.color"
+             [ngStyle]="{'background-color': color}"
+          ></span>
+          </diV>
+        </div>
+
+        <div class="ekart-product-detail-desc">
+          <div style="padding: 5px 0px; border-bottom: #ccc 2px solid">
+            <h4>Product Description</h4>
+          </div>
+          <div style="margin-top: 20px">
+            <p>DESCRIPTION</p>
+          </div>
+        </div>
+      </div>
+      <div class="ekart-product-detail-addtoCart">
+        <button class="btn btn-primary">ADD TO CART</button>
+      </div>
+    </div>
+  </div>
+</div>

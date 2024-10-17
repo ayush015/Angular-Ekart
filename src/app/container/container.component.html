@@ -1,4 +1,5 @@
 <app-header></app-header>
+<app-product-detail [productListComp]="productListComponent"  *ngIf="productsRef.selectedProduct != null" ></app-product-detail>
 <app-product-search
   (clickEvent)="productsRef.handleSearch($event)"
 ></app-product-search>
